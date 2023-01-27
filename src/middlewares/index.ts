@@ -1,1 +1,1 @@
-export * from "./validateSchema.middleware";
+export * from "./validate-schema-middleware";
