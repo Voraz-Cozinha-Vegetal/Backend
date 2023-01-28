@@ -1,6 +1,6 @@
 import { existingEmailError } from "@/errors";
 import { SignInParams } from "@/protocols";
-import userRepository from "@/repositories/user-repository";
+import { userRepository } from "@/repositories";
 import { User } from "@prisma/client";
 import bcrypt from "bcrypt";
 
@@ -14,7 +14,7 @@ async function createUser({ email, password }: SignInParams): Promise<User> {
   });
 }
 
-async function validateUniqueEmailOrFail(email: string) {
+async function validateUniqueEmailOrFail(email: string): Promise<void> {
   const userWithSameEmail = await userRepository.findUserByEmail(email);
   if (userWithSameEmail) {
     throw existingEmailError();
@@ -25,5 +25,5 @@ const userService = {
   createUser,
 };
 
-export default userService;
+export { userService };
 

@@ -12,3 +12,13 @@ export type SignUpBody = {
   password: string,
   confirmPassword: string
 }
+
+export type SignInResult = {
+  token: string,
+};
+
+export type SessionParams = {
+  userId: number,
+  token: string,
+}
+
