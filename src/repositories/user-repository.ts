@@ -10,6 +10,14 @@ async function findUserByEmail(email: string): Promise<User> {
   });
 }
 
+async function findUserById(userId: number): Promise<User> {
+  return prisma.user.findFirst({
+    where: {
+      id: userId,
+    },
+  });
+}
+
 async function insertUser({ email, password }: SignInParams): Promise<User> {
   return prisma.user.create({
     data: {
@@ -21,6 +29,7 @@ async function insertUser({ email, password }: SignInParams): Promise<User> {
 
 const userRepository = {
   findUserByEmail,
+  findUserById,
   insertUser,
 };
 

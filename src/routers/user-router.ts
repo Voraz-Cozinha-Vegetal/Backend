@@ -5,6 +5,6 @@ import { Router } from "express";
 
 const userRouter = Router();
 
-userRouter.post("/sign-up", validateSchema(signUpSchema), userPost);
+userRouter.post("/", validateSchema(signUpSchema), userPost);
 
 export { userRouter };

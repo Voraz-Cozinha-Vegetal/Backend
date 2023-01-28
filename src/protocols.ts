@@ -1,4 +1,4 @@
-import { User } from "@prisma/client";
+import { Product, User } from "@prisma/client";
 
 export type Errors = {
     name: string;
@@ -21,4 +21,10 @@ export type SessionParams = {
   userId: number,
   token: string,
 }
+
+export type JwtResponse = {
+  userId: number;
+};
+
+export type ProdcutBody = Omit<Product, "id" | "createdAt" | "updatedAt">;
 

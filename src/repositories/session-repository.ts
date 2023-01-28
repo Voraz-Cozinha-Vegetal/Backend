@@ -15,4 +15,4 @@ const sessionRepository = {
   createSession,
 };
 
-export default sessionRepository;
+export { sessionRepository };

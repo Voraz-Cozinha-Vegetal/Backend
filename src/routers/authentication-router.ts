@@ -6,6 +6,6 @@ import { Router } from "express";
 
 const authRouter = Router();
 
-authRouter.post("/sign-in", validateSchema(signInSchema), singInPost);
+authRouter.post("/", validateSchema(signInSchema), singInPost);
 
 export { authRouter };
