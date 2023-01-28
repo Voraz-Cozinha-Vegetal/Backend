@@ -11,7 +11,7 @@ async function main() {
         image: "https://thumbs.dreamstime.com/b/p%C3%A3o-com-ovo-mexido-de-pao-do-brasileiro-104783243.jpg",
         description: "Pão quentinho com ovo mexido",
         price: 10000,
-        stock: 100,
+        stock: 0,
         createdAt: dayjs().toDate(),
         updatedAt: dayjs().add(1, "days").toDate(),
       },

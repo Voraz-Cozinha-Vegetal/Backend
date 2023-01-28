@@ -11,6 +11,15 @@ export function validateSchema<T>(schema: ObjectSchema<T>) {
     if(req.body.password) {
       req.body.password = sanitizer(req.body.password);
     }
+    if(req.body.name) {
+      req.body.name = sanitizer(req.body.name);
+    }
+    if(req.body.image) {
+      req.body.image = sanitizer(req.body.image);
+    }
+    if(req.body.description) {
+      req.body.description = sanitizer(req.body.description);
+    }
     
     const validation = schema.validate(req.body, { abortEarly: false });
   

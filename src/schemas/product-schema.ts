@@ -1,4 +1,4 @@
-import { ProdcutBody } from "@/protocols";
+import { ProdcutBody, ProductUpdate } from "@/protocols";
 import Joi from "joi";
 
 export const productSchema = Joi.object<ProdcutBody>({
@@ -12,6 +12,12 @@ export const productSchema = Joi.object<ProdcutBody>({
     )
     .required(),
   price: Joi.number().integer().positive().required(),
-  stock: Joi.number().integer().positive().required(),
+  stock: Joi.number().integer().required(),
 });
 
+export const productUpdateSchema = Joi.object<ProductUpdate>({
+  productId: Joi.number().integer().positive().required(),
+  price: Joi.number().integer().positive(),
+  stock: Joi.number().integer(),
+  available: Joi.boolean(),
+});
