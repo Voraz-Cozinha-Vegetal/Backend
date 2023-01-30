@@ -4,7 +4,13 @@ import express, { Express } from "express";
 import cors from "cors";
 
 import { loadEnv, connectDb, disconnectDB } from "@/config";
-import { authRouter, cartRouter, productRouter, userRouter } from "@/routers";
+import { 
+  addressRouter, 
+  authRouter, 
+  cartRouter, 
+  productRouter, 
+  userRouter 
+} from "@/routers";
 
 loadEnv();
 
@@ -16,7 +22,8 @@ app
   .use("/sign-up", userRouter)
   .use("/sign-in", authRouter)
   .use("/products", productRouter)
-  .use("/cart", cartRouter);
+  .use("/cart", cartRouter)
+  .use("/address", addressRouter);
   
 export function init(): Promise<Express> {
   connectDb();

@@ -42,7 +42,7 @@ export type ProductUpdate = Partial<{
   available: boolean,
 }>;
 
-//caart types
+//cart types
 export type CartBody = {
   userId: number,
   productId: number,
@@ -53,5 +53,16 @@ export type CartSchema = Omit<CartBody, "userId">
 
 export type CartId = {
   cartId: number,
+}
+
+//address types
+export type AddressParams = {
+  userId?: number,
+  state: string,
+  city: string,
+  neighborhood: string,
+  street: string,
+  number: string,
+  complement: string,
 }
 
