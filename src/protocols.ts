@@ -42,3 +42,16 @@ export type ProductUpdate = Partial<{
   available: boolean,
 }>;
 
+//caart types
+export type CartBody = {
+  userId: number,
+  productId: number,
+  quantity: number,
+}
+
+export type CartSchema = Omit<CartBody, "userId">
+
+export type CartId = {
+  cartId: number,
+}
+

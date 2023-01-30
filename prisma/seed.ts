@@ -16,6 +16,17 @@ async function main() {
         updatedAt: dayjs().add(1, "days").toDate(),
       },
     });
+    product = await prisma.product.create({
+      data: {
+        name: "Pão com ovo 2",
+        image: "https://thumbs.dreamstime.com/b/p%C3%A3o-com-ovo-mexido-de-pao-do-brasileiro-104783243.jpg",
+        description: "Pão quentinho com ovo mexido 2",
+        price: 20000,
+        stock: 100,
+        createdAt: dayjs().toDate(),
+        updatedAt: dayjs().add(1, "days").toDate(),
+      },
+    });
   }
 
   console.log(product);

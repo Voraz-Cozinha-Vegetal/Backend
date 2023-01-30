@@ -25,10 +25,19 @@ async function listProducts(): Promise<Product[]> {
   return prisma.product.findMany({});
 }
 
+async function findPoductById(productId: number): Promise<Product> {
+  return prisma.product.findFirst({
+    where: {
+      id: productId,
+    }
+  });
+}
+
 const productRepository = {
   createProduct,
   updateProduct,
   listProducts,
+  findPoductById,
 };
 
 export { productRepository };

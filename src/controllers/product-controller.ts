@@ -33,6 +33,9 @@ export async function putProductAdmin(req: Request, res: Response) {
     if(error.name === "BadRequestError") {
       return res.status(httpStatus.BAD_REQUEST).send(error);
     }
+    if(error.name === "NotFoundError") {
+      return res.status(httpStatus.NOT_FOUND).send(error);
+    }
     return res.status(httpStatus.UNAUTHORIZED).send({});
   }
 }
@@ -45,8 +48,8 @@ export async function getProductsAdmin(req: Request, res: Response) {
 
     return res.status(httpStatus.OK).send(products);
   } catch (error) {
-    if(error.name === "BadRequestError") {
-      return res.status(httpStatus.BAD_REQUEST).send(error);
+    if(error.name === "NotFoundError") {
+      return res.status(httpStatus.NOT_FOUND).send(error);
     }
     return res.status(httpStatus.UNAUTHORIZED).send({});
   }
@@ -58,8 +61,8 @@ export async function getProducts(req: Request, res: Response) {
 
     return res.status(httpStatus.OK).send(products);
   } catch (error) {
-    if(error.name === "BadRequestError") {
-      return res.status(httpStatus.BAD_REQUEST).send(error);
+    if(error.name === "NotFoundError") {
+      return res.status(httpStatus.NOT_FOUND).send(error);
     }
     return res.status(httpStatus.INTERNAL_SERVER_ERROR).send({});
   }
