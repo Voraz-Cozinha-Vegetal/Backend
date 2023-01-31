@@ -1,7 +1,6 @@
 import { getProducts, getProductsAdmin, postProductAdmin, putProductAdmin } from "@/controllers";
 import { validateSchema, validateToken } from "@/middlewares";
 import { productSchema, productUpdateSchema } from "@/schemas";
-
 import { Router } from "express";
 
 const productRouter = Router();

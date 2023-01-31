@@ -66,3 +66,10 @@ export type AddressParams = {
   complement: string,
 }
 
+//historic types
+export type HistoricParams = {
+  userId: number,
+  productId: number,
+  quantity: number,
+  total: number,
+}

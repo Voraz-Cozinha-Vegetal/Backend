@@ -1,4 +1,4 @@
-import { userAddressPost, userAddressPut } from "@/controllers/address-controller";
+import { userAddressPost, userAddressPut } from "@/controllers";
 import { validateSchema, validateToken } from "@/middlewares";
 import { addressSchema } from "@/schemas";
 import { Router } from "express";

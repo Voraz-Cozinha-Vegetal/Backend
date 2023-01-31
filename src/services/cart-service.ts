@@ -25,6 +25,15 @@ async function eraseCartItem(cartId: number): Promise<void> { //find by cart id 
   await cartRepository.deleteCartItem(cartId);
 }
 
+async function eraseUserCart(userId: number): Promise<void> { //find by cart id not found
+  const userCart = await cartRepository.getCartItemsByUserId(userId);
+  if(!userCart) throw notFoundError();
+  
+  userCart.forEach(async element => {
+    await cartRepository.deleteCartItem(element.id);
+  });
+}
+
 async function listUserCartItems(userId: number): Promise<Cart[]> {
   const cartItems = await cartRepository.getCartItemsByUserId(userId);
   if(!cartItems) throw notFoundError();
@@ -35,6 +44,7 @@ const cartService = {
   createCartItem,
   eraseCartItem,
   listUserCartItems,
+  eraseUserCart,
 };
 
 export { cartService };
