@@ -1,4 +1,3 @@
-
 import { editHistoricPaid, editHistoricRefused, getHistoric, getHistoricsAdmin, historicPost } from "@/controllers";
 import { validateToken } from "@/middlewares";
 import { Router } from "express";

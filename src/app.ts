@@ -9,6 +9,7 @@ import {
   authRouter, 
   cartRouter, 
   historicRouter, 
+  paymentRouter, 
   productRouter, 
   userRouter 
 } from "@/routers";
@@ -25,7 +26,8 @@ app
   .use("/products", productRouter)
   .use("/cart", cartRouter)
   .use("/address", addressRouter)
-  .use("/historic", historicRouter);
+  .use("/historic", historicRouter)
+  .use("/payment", paymentRouter);
   
 export function init(): Promise<Express> {
   connectDb();

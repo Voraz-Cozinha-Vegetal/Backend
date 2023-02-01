@@ -4,4 +4,5 @@ export * from "./product-repository";
 export * from "./cart-repository";
 export * from "./address-repository";
 export * from "./historic-repository";
+export * from "./payment-repository";
 

@@ -4,3 +4,4 @@ export * from "./product-service";
 export * from "./cart-service";
 export * from "./address-service";
 export * from "./historic-service";
+export * from "./payment-service";

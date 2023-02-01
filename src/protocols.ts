@@ -84,3 +84,11 @@ export type UpdatePaymentStatus = {
   userId: number,
   status: PaymentStatus,
 }
+
+//payment types
+export type PaymentParams = {
+  historicId: number,
+  value: number,
+  cardIssuer: string,
+  cardLastDigits: string,
+}
