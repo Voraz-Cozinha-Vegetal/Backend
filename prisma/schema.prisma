@@ -70,15 +70,6 @@ model Address {
   updatedAt     DateTime   @updatedAt
 }
 
-model Payment {
-  id             Int      @id @default(autoincrement())
-  value          Int
-  cardIssuer     String
-  cardLastDigits String
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
-}
-
 model Historic {
   id             Int      @id @default(autoincrement())
   userId         Int
@@ -87,6 +78,25 @@ model Historic {
   Product        Product  @relation(fields: [productId], references: [id])
   quantity       Int  
   total          Int
+  status         PaymentStatus
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
+  Payment        Payment[]
+}
+
+enum PaymentStatus {
+  RESERVED
+  PAID
+  REFUSED
+}
+
+model Payment {
+  id             Int          @id @default(autoincrement())
+  historicId     Int
+  Historic       Historic     @relation(fields: [historicId], references: [id])
+  value          Int
+  cardIssuer     String
+  cardLastDigits String
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
 }

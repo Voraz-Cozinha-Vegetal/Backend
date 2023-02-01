@@ -1,4 +1,4 @@
-import { Product, User } from "@prisma/client";
+import { PaymentStatus, Product, User } from "@prisma/client";
 
 export type Errors = {
     name: string;
@@ -72,4 +72,15 @@ export type HistoricParams = {
   productId: number,
   quantity: number,
   total: number,
+  status: PaymentStatus
+}
+
+export type UpdateHistoric = {
+  historicId: number,
+  status: PaymentStatus,
+}
+
+export type UpdatePaymentStatus = {
+  userId: number,
+  status: PaymentStatus,
 }
