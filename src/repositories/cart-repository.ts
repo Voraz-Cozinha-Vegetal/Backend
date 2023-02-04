@@ -20,6 +20,9 @@ function getCartItemsByUserId(userId: number): Promise<Cart[]> {
   return prisma.cart.findMany({
     where: {
       userId,
+    },
+    include: {
+      Product: true
     }
   });
 }

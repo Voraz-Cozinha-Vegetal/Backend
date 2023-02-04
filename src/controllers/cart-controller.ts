@@ -20,15 +20,18 @@ export async function postCartItem(req: Request, res: Response) {
     if(error.name === "ProductUnavailableError") {
       return res.status(httpStatus.FORBIDDEN).send(error);
     }
+    if(error.name === "InsufficientStockError") {
+      return res.status(httpStatus.FORBIDDEN).send(error);
+    }
     return res.status(httpStatus.INTERNAL_SERVER_ERROR).send({});
   }
 }
 
 export async function dropCartItem(req: Request, res: Response) {
-  const { cartId } = req.body;
+  const { cartId } = req.params;
   
   try {
-    await cartService.eraseCartItem(cartId);
+    await cartService.eraseCartItem(Number(cartId));
   
     return res.status(httpStatus.OK).send({});
   } catch (error) {

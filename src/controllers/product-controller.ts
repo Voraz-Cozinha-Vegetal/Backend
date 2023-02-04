@@ -68,3 +68,18 @@ export async function getProducts(req: Request, res: Response) {
   }
 }
 
+export async function getProduct(req: Request, res: Response) {
+  const { productId } = req.params;
+
+  try {
+    const product = await productService.listProductById(Number(productId));
+
+    return res.status(httpStatus.OK).send(product);
+  } catch (error) {
+    if(error.name === "NotFoundError") {
+      return res.status(httpStatus.NOT_FOUND).send(error);
+    }
+    return res.status(httpStatus.INTERNAL_SERVER_ERROR).send({});
+  }
+}
+

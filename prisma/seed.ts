@@ -7,9 +7,9 @@ async function main() {
   if (!product) {
     product = await prisma.product.create({
       data: {
-        name: "Pão com ovo",
-        image: "https://thumbs.dreamstime.com/b/p%C3%A3o-com-ovo-mexido-de-pao-do-brasileiro-104783243.jpg",
-        description: "Pão quentinho com ovo mexido",
+        name: "Brigadeiro vegano",
+        image: "https://receitinhas.com.br/wp-content/uploads/2022/08/Brigadeiro-de-banana.jpg",
+        description: "Brigadeiro com leite de amendoas e 70% cacau",
         price: 10000,
         stock: 0,
         createdAt: dayjs().toDate(),
@@ -18,9 +18,53 @@ async function main() {
     });
     product = await prisma.product.create({
       data: {
-        name: "Pão com ovo 2",
-        image: "https://thumbs.dreamstime.com/b/p%C3%A3o-com-ovo-mexido-de-pao-do-brasileiro-104783243.jpg",
-        description: "Pão quentinho com ovo mexido 2",
+        name: "Brigadeiro vegano 2",
+        image: "https://receitinhas.com.br/wp-content/uploads/2022/08/Brigadeiro-de-banana.jpg",
+        description: "Brigadeiro com leite de amendoas e 70% cacau 2",
+        price: 20000,
+        stock: 100,
+        createdAt: dayjs().toDate(),
+        updatedAt: dayjs().add(1, "days").toDate(),
+      },
+    });
+    product = await prisma.product.create({
+      data: {
+        name: "Brigadeiro vegano 3",
+        image: "https://receitinhas.com.br/wp-content/uploads/2022/08/Brigadeiro-de-banana.jpg",
+        description: "Brigadeiro com leite de amendoas e 70% cacau 3",
+        price: 20000,
+        stock: 100,
+        createdAt: dayjs().toDate(),
+        updatedAt: dayjs().add(1, "days").toDate(),
+      },
+    });
+    product = await prisma.product.create({
+      data: {
+        name: "Brigadeiro vegano 4",
+        image: "https://receitinhas.com.br/wp-content/uploads/2022/08/Brigadeiro-de-banana.jpg",
+        description: "Brigadeiro com leite de amendoas e 70% cacau 4",
+        price: 20000,
+        stock: 100,
+        createdAt: dayjs().toDate(),
+        updatedAt: dayjs().add(1, "days").toDate(),
+      },
+    });
+    product = await prisma.product.create({
+      data: {
+        name: "Brigadeiro vegano 5",
+        image: "https://receitinhas.com.br/wp-content/uploads/2022/08/Brigadeiro-de-banana.jpg",
+        description: "Brigadeiro com leite de amendoas e 70% cacau 5",
+        price: 20000,
+        stock: 100,
+        createdAt: dayjs().toDate(),
+        updatedAt: dayjs().add(1, "days").toDate(),
+      },
+    });
+    product = await prisma.product.create({
+      data: {
+        name: "Brigadeiro vegano 6",
+        image: "https://receitinhas.com.br/wp-content/uploads/2022/08/Brigadeiro-de-banana.jpg",
+        description: "Brigadeiro com leite de amendoas e 70% cacau 6",
         price: 20000,
         stock: 100,
         createdAt: dayjs().toDate(),

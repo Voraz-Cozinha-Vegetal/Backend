@@ -6,7 +6,13 @@ import { createSession } from "./factories/sessions-factory";
 import { prisma } from "@/config";
 
 export async function cleanDb() {
-  
+  prisma.payment.deleteMany({});
+  prisma.historic.deleteMany({});
+  prisma.address.deleteMany({});
+  prisma.cart.deleteMany({});
+  prisma.product.deleteMany({});
+  prisma.session.deleteMany({});
+  prisma.user.deleteMany({});
 }
 
 export async function generateValidToken(user?: User) {

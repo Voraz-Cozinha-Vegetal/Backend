@@ -47,12 +47,20 @@ async function listAllProductsAdmin(userId: number): Promise<Product[]> {
   return products;
 }
 
+async function listProductById(productId: number): Promise<Product> {
+  const product = await productRepository.findPoductById(productId);
+  if(!product) throw notFoundError();
+
+  return product;
+}
+
 const productService = {
   insertProduct,
   validateAdmin,
   editProduct,
   listAllProducts,
   listAllProductsAdmin,
+  listProductById,
 };
 
 export { productService };

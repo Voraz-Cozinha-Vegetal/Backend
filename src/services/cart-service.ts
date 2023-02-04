@@ -1,4 +1,4 @@
-import { badRequestlError, notFoundError, productUnavailableError } from "@/errors";
+import { badRequestlError, insufficientStockError, notFoundError, productUnavailableError } from "@/errors";
 import { CartBody } from "@/protocols";
 import { cartRepository, productRepository } from "@/repositories";
 import { Cart } from "@prisma/client";
@@ -10,6 +10,7 @@ async function createCartItem(data: CartBody): Promise<Cart> {
   const product = await productRepository.findPoductById(data.productId);
   if(!product) throw notFoundError();
   if(!product.available || product.stock < 1) throw productUnavailableError();
+  if(product.stock < data.quantity) throw insufficientStockError();
 
   const cartItem = await cartRepository.insertCartItem(data);
   if(!cartItem) throw badRequestlError();
@@ -18,7 +19,6 @@ async function createCartItem(data: CartBody): Promise<Cart> {
 }
 
 async function eraseCartItem(cartId: number): Promise<void> { //find by cart id not found
-  cartId = Number(cartId);
   const cartItem = await cartRepository.findCartItemsById(cartId);
   if(!cartItem) throw notFoundError();
   

@@ -51,10 +51,6 @@ export type CartBody = {
 
 export type CartSchema = Omit<CartBody, "userId">
 
-export type CartId = {
-  cartId: number,
-}
-
 //address types
 export type AddressParams = {
   userId?: number,
