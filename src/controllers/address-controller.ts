@@ -63,3 +63,19 @@ export async function userAddressPut(req: Request, res: Response) {
     return res.status(httpStatus.INTERNAL_SERVER_ERROR).send({});
   }
 }
+
+export async function getUserAddress(req: Request, res: Response) {
+  const userId = res.locals.userId as number;
+  
+  try {
+    const userAddress = await addressService.getAddress(userId);
+  
+    return res.status(httpStatus.OK).send(userAddress);
+  } catch (error) {
+    if (error.name === "NotFoundError") {
+      return res.status(httpStatus.NOT_FOUND).send(error);
+    }
+    return res.status(httpStatus.INTERNAL_SERVER_ERROR).send({});
+  }
+}
+

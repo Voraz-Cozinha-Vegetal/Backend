@@ -1,4 +1,4 @@
-import { userAddressPost, userAddressPut } from "@/controllers";
+import { getUserAddress, userAddressPost, userAddressPut } from "@/controllers";
 import { validateSchema, validateToken } from "@/middlewares";
 import { addressSchema } from "@/schemas";
 import { Router } from "express";
@@ -6,6 +6,7 @@ import { Router } from "express";
 const addressRouter = Router();
 
 addressRouter.post("/", validateToken, validateSchema(addressSchema), userAddressPost),
-addressRouter.put("/", validateToken, validateSchema(addressSchema), userAddressPut);
+addressRouter.put("/", validateToken, validateSchema(addressSchema), userAddressPut),
+addressRouter.get("/", validateToken, getUserAddress);
 
 export { addressRouter };

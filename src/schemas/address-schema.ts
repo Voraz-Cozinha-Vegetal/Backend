@@ -7,5 +7,5 @@ export const addressSchema = Joi.object<AddressParams>({
   neighborhood: Joi.string().required(),
   street: Joi.string().required(),
   number: Joi.string().required(),
-  complement: Joi.string().required(),
+  complement: Joi.any(),
 });
