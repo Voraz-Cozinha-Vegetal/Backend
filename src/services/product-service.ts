@@ -16,7 +16,7 @@ async function insertProduct(data: ProdcutBody): Promise<Product> {
 async function validateAdmin(userId: number): Promise<void> {
   const user = await userRepository.findUserById(userId);
 
-  if(!user || user.email !== "andre2@teste.com") throw unauthorizedError();
+  if(!user || user.email !== "andre10@teste.com") throw unauthorizedError();
 }
 
 async function editProduct(data: ProductUpdate): Promise<Product> {
